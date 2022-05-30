@@ -43,13 +43,14 @@ const handleClick = ({ target: el }: Event) => {
             text
           }}</a>
           <ul v-if="children && frontmatter.outline === 'deep'">
-            <li v-for="{ text, link, hidden } in children" v-show="!hidden">
+            <li v-for="{ text, link, children, hidden } in children" v-show="!hidden">
               <a
                 class="outline-link nested"
                 :href="link"
                 @click="handleClick"
                 >{{ text }}</a
               >
+
             </li>
           </ul>
         </li>
