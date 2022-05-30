@@ -18,18 +18,13 @@ export function resolveHeaders(headers: HeaderWithChildren[]) {
 }
 
 function groupHeaders(headers: Header[]): HeaderWithChildren[] {
-  // headers.splice(2, 0, {level: 4, title: '深圳', slug: '_深圳'});
   headers = headers.map((h) => Object.assign({}, h))
   let lastH2: HeaderWithChildren | undefined
-  let lastH3
   for (const h of headers) {
     if (h.level === 2) {
       lastH2 = h
     } else if (lastH2 && h.level <= 3) {
-      lastH3 = h
       ;(lastH2.children || (lastH2.children = [])).push(h)
-    } else if (lastH3 && h.level <= 4) {
-      ;(lastH3.children || (lastH3.children = [])).push(h)
     }
   }
   return headers.filter((h) => h.level === 2)
