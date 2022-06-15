@@ -12,7 +12,7 @@
 <!--        />-->
 <!--      </svg>-->
       <a href="/">
-        <img class="js-headerLogo Header-logo" src="/images/go-logo.svg" alt="Go">
+        <img class="js-headerLogo Header-logo" src="/logo.svg" alt="Go">
       </a>
 <!--      <span class="text">Go</span>-->
     </slot>
